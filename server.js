@@ -3,6 +3,7 @@ import colors from 'colors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB from './config/db.js';
+import authRoute from './routes/authRoute.js';
 
 //configure env
 dotenv.config();
@@ -17,6 +18,9 @@ app.use(morgan('dev'));
 
 //middelware
 app.use(express.json());
+
+//routes
+app.use('/api/v1/auth', authRoute)
 
 //rest api
 app.get('/', (req, res) => {
