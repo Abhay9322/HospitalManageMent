@@ -5,6 +5,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Policy from './pages/Policy';
 import Pagenotfound from './pages/Pagenotfound';
+// import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   return (
