@@ -8,6 +8,7 @@ import Pagenotfound from './pages/Pagenotfound';
 import Register from './pages/Auth/Register';
 import Login from './pages/Auth/Login';
 import Dashboard from './pages/user/Dashboard';
+import ForgotPassword from './pages/Auth/ForgotPassword';
 // import PrivateRoute from './components/Routes/Private'; // Uncomment if using
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/policy' element={<Policy />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
 
         {/* ✅ If dashboard should be private, wrap it like this:
             <Route path='/dashboard' element={<PrivateRoute />}>

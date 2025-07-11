@@ -1,4 +1,4 @@
-import express, { json } from 'express';
+import express from 'express';
 import colors from 'colors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
@@ -14,21 +14,24 @@ connectDB();
 
 const app = express();
 
-//middelware
-app.use(morgan('dev'));
+// ✅ FIXED: CORS Setup
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
 
-//middelware
-app.use(cors());
+//middleware
+app.use(morgan('dev'));
 app.use(express.json());
 
 //routes
-app.use('/api/v1/auth', authRoute)
+app.use('/api/v1/auth', authRoute);
 
 //rest api
 app.get('/', (req, res) => {
     res.send({
         message: "Welcome to ecommerce app"
-    })
+    });
 });
 
 //port
@@ -37,5 +40,4 @@ const PORT = process.env.PORT || 8000;
 //run listen
 app.listen(PORT, () => {
     console.log(`Server running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
-
 });
